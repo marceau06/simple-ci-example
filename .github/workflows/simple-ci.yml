@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Checkout repository
-        run: echo "Hello ${{ secrets.MESSAGE }}"
+        run: echo "Hello ${{ vars.MESSAGE }}"

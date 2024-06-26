@@ -1,2 +1,1 @@
 # simple-ci-example
-Test

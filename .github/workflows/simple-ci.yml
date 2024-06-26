@@ -14,4 +14,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Checkout repository
-        run: echo "Hello world!"        
+        env:
+          MESSAGE: ${{secrets.message}}
+        run: echo "Hello $MESSAGE"        

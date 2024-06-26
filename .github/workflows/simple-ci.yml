@@ -15,5 +15,5 @@ jobs:
 
       - name: Checkout repository
         env:
-          MESSAGE: ${{secrets.message}}
-        run: echo "Hello $MESSAGE"        
+          MSG: ${{secrets.MESSAGE}}
+        run: echo "Hello $MSG"        

@@ -17,3 +17,9 @@ jobs:
           with:
             node-version: '14'
           
+  reporting:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: MichinaoShimizu/workflow-time-report@v7.1.0

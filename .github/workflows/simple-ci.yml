@@ -22,5 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
       - uses: actions/checkout@v3
       - uses: MichinaoShimizu/workflow-time-report@v7.1.0
+      

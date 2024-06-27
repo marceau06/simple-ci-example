@@ -6,15 +6,6 @@ on:
        - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Checkout repository
-        run: echo "Hello ${{ secrets.MESSAGE }}"
-  
   example-marketplace:
     runs-on: ubuntu-latest
     steps:
@@ -22,7 +13,7 @@ jobs:
           uses: actions/checkout@v2 
 
         - name: Use marketplace action
-          uses: actions/setup-node@v2
+          uses: actions/setup-node@v4
           with:
             node-version: '14'
           

@@ -38,7 +38,6 @@ jobs:
           with:
             name: tests-result-artifact
             path: tests-result-artifact.log
-            # path: /test/result/tests-result-artifact.log
     
   use_custom_action:
     runs-on: ubuntu-latest
@@ -48,6 +47,6 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Run my custom action
-          uses: ./.github/actions/my-action
+          uses: ./.github/actions
           with:
             name: "world"

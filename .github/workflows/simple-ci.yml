@@ -39,3 +39,15 @@ jobs:
             name: tests-result-artifact
             path: tests-result-artifact.log
             # path: /test/result/tests-result-artifact.log
+    
+  use_custom_action:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Run my custom action
+          uses: ./.github/actions/my-action
+          with:
+            name: "world"

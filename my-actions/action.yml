@@ -1,0 +1,16 @@
+name: 
+description: "A simple composite action"
+inputs:
+  name:
+    description: "The name of the user greet"
+    required: true
+runs: 
+using: "composite"
+steps:
+  - name: Greet the user
+    run: echo "Hello, ${{ inputs.name }}!"
+    shell: bash
+    
+  - name: Print the date
+    run: date
+    shell: bash

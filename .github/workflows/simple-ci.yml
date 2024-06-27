@@ -27,3 +27,5 @@ jobs:
         - run: npm init -y
         
         - run: npm install --save-dev mocha chai
+
+        - run: npm test

@@ -6,24 +6,17 @@ on:
        - main
 
 jobs:  
-  install-node-js:
+  install_nodejs:
     runs-on: ubuntu-latest
     permissions: write-all    
     steps:
         - name: Checkout repository
           uses: actions/checkout@v4 
 
-        - name: Use marketplace action
+        - name: Install nodejs
           uses: actions/setup-node@v4
           with:
             node-version: '14'  
             
-        - name: Sleep for 10 seconds
-          run: sleep 10s
-          shell: bash
-
-        - name: Calculate duration
-          id: duration
-          uses: RockyIsHere/actions-calculate-log-time@v0.2.4
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - run: npm ci
+        - run: npm test

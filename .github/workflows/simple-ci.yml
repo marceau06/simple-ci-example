@@ -37,4 +37,5 @@ jobs:
           uses: actions/upload-artifact@v3
           with:
             name: tests-result-artifact
-            path: /test/result/tests-result-artifact.log
+            path: tests-result-artifact.log
+            # path: /test/result/tests-result-artifact.log

@@ -5,26 +5,38 @@ on:
     branches:
        - main
 
-jobs:
-  example-marketplace:
+jobs:  
+  install-node-js:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout repository
-          uses: actions/checkout@v2 
+          uses: actions/checkout@v4 
 
         - name: Use marketplace action
           uses: actions/setup-node@v4
           with:
-            node-version: '14'
-          
-  reporting:
-    permissions: write-all
+            node-version: '14'  
+            
+  sleep_for_30s:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Sleep for 30 seconds
         run: sleep 30s
         shell: bash
-      - uses: actions/checkout@v3
-      - uses: MichinaoShimizu/workflow-time-report@v7.1.0
-      
+          
+  duration_calculation:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Calculate duration
+          id: duration
+          uses: RockyIsHere/actions-calculate-log-time@v0.2.4
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  reporting:
+      runs-on: ubuntu-latest
+      permissions: write-all
+      steps:
+      - name: Print Calculated Time
+        run: |
+          echo "Calculated Time: ${{ steps.duration.outputs.duration }}"

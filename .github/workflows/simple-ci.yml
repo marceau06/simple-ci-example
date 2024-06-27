@@ -16,10 +16,8 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v4
           
-        - name: Download test file
-          uses: actions/download-artifact@v3
-          with:
-            name: example.test.js
+        - name: Display test file content
+          run: cat example.test.js
           
         - name: Install nodejs
           uses: actions/setup-node@v4

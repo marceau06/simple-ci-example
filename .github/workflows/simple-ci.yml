@@ -14,10 +14,18 @@ jobs:
     if: contains(fromJSON('["push", "pull_request"]'), github.event_name)
     steps:
         - name: Checkout repository
-          uses: actions/checkout@v4 
+          uses: actions/checkout@v4
+          
+        - name: Download test file
+          uses: actions/download-artifact@v3
+          with:
+            name: example.test.js
+          
         - name: Install nodejs
           uses: actions/setup-node@v4
           with:
-            node-version: '14'  
+            node-version: '14'
+            
         - run: npm init -y
+        
         - run: npm install --save-dev mocha chai
